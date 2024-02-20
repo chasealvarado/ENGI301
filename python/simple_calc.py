@@ -40,9 +40,9 @@ Simple calculator that will
   - Repeat
 
 Operations:
-  - "+" : addition
-  - "-" : subtraction
-  - "*" : multiplication
+  - "+" : addition,
+  - "-" : subtraction,
+  - "*" : multiplication,
   - "/" : division
 
 Error conditions:
@@ -56,6 +56,11 @@ Error conditions:
 # NOTE - Hint:  Look at  https://docs.python.org/3/library/operator.html
 
 import operator
+
+try:
+  input=raw_input
+  except:
+    pass
 
 # ------------------------------------------------------------------------
 # Constants
@@ -73,7 +78,11 @@ operators = {
     "+" : operator.add,
     "-" : operator.sub,
     "*" : operator.mul,
-    "/" : operator.truediv
+    "/" : operator.truediv,
+   ">>" : operator.rshift,
+   "<<" : operator.lshift,
+    "%" : operator.mod,
+   "**" : operator.pow
 }
 
 
@@ -94,7 +103,9 @@ def get_user_input():
         op      = input("Enter operation    : ")
         # translation
         op = operators[op]
-     
+     if op == "<<" or op == ">>"
+        number1 = int(number1)
+        number2 = int(number2)
         # NOTE - User input is generally returned as a string and must be translated.
         return(number1, number2, op)
         
